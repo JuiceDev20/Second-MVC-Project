@@ -4,3 +4,29 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>This is my Code for this project.</p>
+
+<script>
+    function DoFizzBuzz(fizz, buzz) {
+        let output = "";
+
+        for (let loop = 1; loop <= 100; loop++) {
+            let fizzRemainder = loop % fizz;
+            let buzzRemainder = loop % buzz;
+            //Some calculation that looks at fizz and buzz to see if they are 0
+            if (fizzRemainder == 0 && buzzRemainder == 0) {
+                output += "FizzBuzz ";
+            }
+            else if (fizzRemainder == 0) {
+                output += "Fizz ";
+            }
+            else if (buzzRemainder == 0) {
+                output += "Buzz ";
+            }
+            else {
+                output += `${loop} `;
+            }
+        }
+        return output;
+    };
+
+</script>

@@ -4,47 +4,21 @@
 <h1>@ViewData["FizzBuzz Challenge"]</h1>
 
 <hr />
-<form>
-    <div class="container">
-        <div class="row">
-            <div class="col"><input type="text" class="form-control" id="btnFizz"></div>
-            <div class="col"><input type="text" class="form-control" id="btnBuzz"></div>
-            <div class="col"><button onclick="btnFizzBuzz" class="btn btn-primary" id="btnFizzBuzz">Submit</button></div>
-        </div>
-    </div>
-</form>
-<hr />
-
+@using (Html.BeginForm("Solve", "Home", FormMethod.Post))
 <div class="container">
     <div class="row">
-        <textarea class="form-control" id="FizzBuzzOut" rows="4" style="resize: none;" readonly=""></textarea>
+        <div class="col"><input type="text" class="form-control" id="btnFizz"></div>
+        <div class="col"><input type="text" class="form-control" id="btnBuzz"></div>
+        <div class="col"><button onclick="btnFizzBuzz" class="btn btn-primary" id="btnFizzBuzz">Submit</button></div>
     </div>
 </div>
 
 <hr />
 
-<script>
-    function DoFizzBuzz(fizz, buzz) {
-        let output = "";
+<div class="container">
+    <div class="col">
+        The calculated output is: @ViewData["Output"]
+    </div>
+</div>
 
-        for (let loop = 1; loop <= 100; loop++) {
-            let fizzRemainder = loop % fizz;
-            let buzzRemainder = loop % buzz;
-            //Some calculation that looks at fizz and buzz to see if they are 0
-            if (fizzRemainder == 0 && buzzRemainder == 0) {
-                output += "FizzBuzz ";
-            }
-            else if (fizzRemainder == 0) {
-                output += "Fizz ";
-            }
-            else if (buzzRemainder == 0) {
-                output += "Buzz ";
-            }
-            else {
-                output += `${loop} `;
-            }
-        }
-        return output;
-    };
-
-</script>
+<hr />
